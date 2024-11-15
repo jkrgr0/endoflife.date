@@ -1,0 +1,33 @@
+{
+	"name": "end-of-life",
+	"image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
+	"features": {
+    	"ghcr.io/devcontainers/features/github-cli:1": {}
+  	},
+	"portsAttributes":{
+		"4000": {
+			"label": "Jekyll",
+			"onAutoForward": "notify"
+		}
+	},
+
+	"postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+	"postStartCommand": "${containerWorkspaceFolder}/scripts/setup",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Shopify.ruby-lsp",
+				"GitHub.vscode-pull-request-github",
+				"redhat.vscode-yaml"
+			],
+			"settings": {
+				"files.associations": {
+					"**/products/*.md": "yaml"
+				},
+				"yaml.schemas": {
+					"../product-schema.json": "products/*.md"
+				}
+			}
+		}
+	}
+}

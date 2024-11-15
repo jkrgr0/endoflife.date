@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Ensure bundler is installed
+gem install bundler
+
+# Install dependencies
+bundle install
+
+# All of the following commands should run successfully at this point:
+ruby --version
+bundle --version
+bundle exec jekyll --version
